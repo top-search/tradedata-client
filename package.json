@@ -1,0 +1,22 @@
+{
+  "name": "@top-search/tradedata-client",
+  "version": "0.1.0",
+  "description": "Official JavaScript/Node.js SDK for TradeData.io & TradeInt Customs Data API",
+  "main": "index.js",
+  "homepage": "https://tradedata.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/top-search/tradedata-client.git"
+  },
+  "keywords": [
+    "tradedata",
+    "tradeint",
+    "customs-data",
+    "bill-of-lading",
+    "trade-intelligence",
+    "logistics",
+    "shipping"
+  ],
+  "author": "Top Search <dev@tradedata.io>",
+  "license": "MIT"
+}
