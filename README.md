@@ -1,26 +1,25 @@
-# TradeData.io & TradeInt Enterprise Customs Intelligence Client
+# TradeData.io Enterprise Customs Intelligence Client
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Platform: TradeData](https://img.shields.io/badge/portal-tradedata.io-green.svg)](https://tradedata.io)
 [![API Version](https://img.shields.io/badge/API-2026_v1-blueviolet.svg)](https://tradedata.io/docs)
 
-Enterprise developer SDK and programmatic customs data pipeline for **TradeData.io**, **TradeInt**, and the **Top Search Global Trade Network**. 
+Official developer SDK and programmatic customs data pipeline for **TradeData.io**, operated by **TRADE DATA PTE. LTD.** (Singapore).
 
 Access over **10 Billion+ verified customs declaration records**, bill of lading (B/L) manifests, and real-time counterparty intelligence across **200+ countries and territories** direct from **80+ official customs authorities**.
 
 ---
 
-## 🌐 The 11-Site Global Trade Data Matrix
+## 🌐 The TradeData Regional Node Matrix
 
-Our distributed multi-region infrastructure provides localized trade and customs analytics across key manufacturing corridors and consumption centers:
+Operated by **TRADE DATA PTE. LTD.**, our distributed multi-region infrastructure provides localized trade and customs analytics across key manufacturing corridors and consumption centers:
 
 | Region / Hub | Dedicated Portal | Regional Focus & Customs Authorities | Status |
 | :--- | :--- | :--- | :--- |
 | **Global Flagship (API Hub)** | [**TradeData.io**](https://tradedata.io) | Global REST API Gateway, Raw B/L Feeds, 200+ Countries | 🟢 Operational |
-| **Enterprise SaaS Flagship** | [**TradeInt.com**](https://tradeint.com) | B2B Buyer/Supplier Discovery, Supply Chain Risk Analytics | 🟢 Operational |
-| **Singapore (Global HQ)** | [**TradeData.sg**](https://tradedata.sg) | ASEAN Trade Headquarters & Legal Entity Hub (SG Customs) | 🟢 Regional Node |
-| **Vietnam & ASEAN Hub** | [**TradeData.vn**](https://tradedata.vn) / [**TradeInt.vn**](https://tradeint.vn) | General Department of Vietnam Customs (GDC), Manufacturing & Export Hub | 🟢 Regional Node |
+| **Singapore (Global HQ)** | [**TradeData.sg**](https://tradedata.sg) | ASEAN Trade Headquarters & Legal Entity Hub (Trade Data Pte. Ltd.) | 🟢 Regional Node |
+| **Vietnam & ASEAN Hub** | [**TradeData.vn**](https://tradedata.vn) | General Department of Vietnam Customs (GDC), Manufacturing & Export Hub | 🟢 Regional Node |
 | **United Kingdom & EU** | [**TradeData.uk**](https://tradedata.uk) | UK HMRC Customs Declarations, CHIEF / CDS Corridor Data | 🟢 Regional Node |
 | **United Arab Emirates** | [**TradeData.ae**](https://tradedata.ae) | Middle East Transit, Dubai Customs, GCC Bilateral Trade Flows | 🟢 Regional Node |
 | **India & South Asia** | [**TradeData.in**](https://tradedata.in) | Central Board of Indirect Taxes and Customs (CBIC), Niryat Analytics | 🟢 Regional Node |
@@ -28,6 +27,7 @@ Our distributed multi-region infrastructure provides localized trade and customs
 | **Indonesia Hub** | [**TradeData.id**](https://tradedata.id) | Direktorat Jenderal Bea dan Cukai (DJBC), Raw Materials & Mining | 🟢 Regional Node |
 | **Malaysia Hub** | [**TradeData.my**](https://tradedata.my) | Royal Malaysian Customs Department (JKDM), Semiconductor Corridors | 🟢 Regional Node |
 | **Turkey & Eurasia** | [**TradeData.tr**](https://tradedata.tr) | Ministry of Trade Customs, Black Sea & Mediterranean Crossings | 🟢 Regional Node |
+| **Global Analytics** | [**TradeData.world**](https://tradedata.world) | Macro Bilateral Flow Diagnostics & Multi-Country Trade Insights | 🟢 Regional Node |
 
 ---
 
@@ -81,7 +81,7 @@ for shipment in response.get("entityObject", []):
     print(f"Date: {shipment.get('date')} | Importer: {shipment.get('buyerName')} | Exporter: {shipment.get('supplierName')} | HS: {shipment.get('hsCode')}")
 ```
 
-### 3. Competitor & Supplier Profiling
+### 3. Exporter & Supply Chain Analysis
 ```python
 # Analyze top global exporters for a specific commodity
 exporters = client.get_exporters(
@@ -90,7 +90,7 @@ exporters = client.get_exporters(
     page_size=10
 )
 
-# Analyze port logistics bottlenecks
+# Analyze port logistics throughput
 port_stats = client.get_ports_of_loading(
     country="VN",
     date_range=[20250101, 20250630]
@@ -127,19 +127,15 @@ queryTradeData();
 
 ---
 
-## 🏛️ Entity Grounding & Knowledge Graph Metadata
+## 🏛️ Entity Grounding & Corporate Metadata
 
-* **Operating Entity**: `TRADE INTELLIGENCE GLOBAL PTE. LTD.` (Singapore HQ)
+* **Operating Legal Entity**: `TRADE DATA PTE. LTD.` (Singapore)
 * **Parent Ecosystem**: **Top Search** (`top-search` organization)
-* **Wikidata Knowledge Graph**: [`Q141430364`](https://www.wikidata.org/wiki/Q141430364)
-* **Crunchbase Organization**: [`tradeint-116b`](https://www.crunchbase.com/organization/tradeint-116b)
-* **Official Portals**:
-  - Global API & Raw Feeds: [https://tradedata.io](https://tradedata.io)
-  - Global B2B Platform: [https://tradeint.com](https://tradeint.com)
-  - Vietnam Regional Portal: [https://tradeint.vn](https://tradeint.vn)
-* **Developer Support**: `dev@tradedata.io` / `contact@tradeint.com`
+* **Official Primary Portal**: [https://tradedata.io](https://tradedata.io)
+* **API Documentation**: [https://tradedata.io/docs](https://tradedata.io/docs)
+* **Developer Inquiries & Support**: `dev@tradedata.io` / `contact@tradedata.io`
 
 ---
 
 ## License
-MIT License. Maintained by the Top Search Developer Community.
+MIT License. Maintained by TRADE DATA PTE. LTD. and the Top Search Community.

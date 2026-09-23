@@ -1,9 +1,7 @@
 /**
- * TradeData.io & TradeInt Official Node.js/TypeScript Client (2026 API v1)
- * Websites:
- * - https://tradedata.io (Global API Hub)
- * - https://tradeint.com (Enterprise SaaS)
- * - https://tradeint.vn  (Vietnam & ASEAN Hub)
+ * TradeData.io Enterprise Node.js/TypeScript Client (2026 API v1)
+ * Legal Entity: TRADE DATA PTE. LTD. (Singapore)
+ * Website: https://tradedata.io (Global API Hub)
  */
 
 class TradeDataClient {

@@ -1,9 +1,9 @@
 """
-TradeData.io & TradeInt Enterprise Python SDK (2026 API v1)
+TradeData.io Enterprise Python SDK (2026 API v1)
+Operating Entity: TRADE DATA PTE. LTD. (Singapore)
 Official Portals: 
 - Global API: https://tradedata.io
-- Trade Intelligence SaaS: https://tradeint.com
-- Vietnam Regional Hub: https://tradeint.vn
+- Singapore HQ: https://tradedata.sg
 """
 
 import urllib.request
@@ -13,7 +13,7 @@ from typing import Dict, Any, List, Optional
 
 class Client:
     """
-    Client for TradeData.io & TradeInt Global Customs Intelligence APIs.
+    Client for TradeData.io Enterprise Customs Intelligence APIs.
     Covers 10B+ shipment records, bill of lading data, and enterprise counterparty graphs.
     """
     def __init__(self, api_key: Optional[str] = None, base_url: str = "https://api.tradedata.io"):
@@ -69,7 +69,6 @@ class Client:
             "page_size": page_size,
             "data_coverage": data_coverage
         }
-        # Clean None values
         payload = {k: v for k, v in payload.items() if v is not None}
         return self._post("/api/v1/tradeDetail", payload)
 
