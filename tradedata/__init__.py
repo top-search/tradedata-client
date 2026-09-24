@@ -1,4 +1,8 @@
-"""TradeData.io & TradeInt Official Client Library."""
+"""
+TradeData Api | Import Export Data Source
+Official Developer Client Library for TradeData.io
+Operated by TRADE DATA PTE. LTD. (Singapore)
+"""
 
 from .client import Client
 

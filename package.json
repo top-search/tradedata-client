@@ -1,7 +1,7 @@
 {
   "name": "@topsearch/tradedata-client",
-  "version": "0.1.0",
-  "description": "Official Enterprise JavaScript/Node.js SDK for TradeData.io Customs Data API",
+  "version": "0.1.1",
+  "description": "TradeData Api | Import Export Data Source — Official Enterprise SDK for Global Customs & Trade Intelligence",
   "main": "index.js",
   "homepage": "https://tradedata.io",
   "repository": {
@@ -9,13 +9,15 @@
     "url": "https://github.com/top-search/tradedata-client.git"
   },
   "keywords": [
-    "tradedata",
+    "tradedata-api",
+    "import-export-data-source",
+    "trade-data-api",
     "customs-data",
     "bill-of-lading",
     "trade-intelligence",
-    "logistics",
-    "shipping",
-    "import-export"
+    "logistics-api",
+    "shipping-manifests",
+    "hs-code"
   ],
   "author": "Trade Data Pte. Ltd. <dev@tradedata.io>",
   "license": "MIT"

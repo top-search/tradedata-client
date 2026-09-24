@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name="tradedata-client",
-    version="0.1.0",
-    description="Official Developer Client for TradeData.io Enterprise Customs Big Data API",
+    version="0.1.1",
+    description="TradeData Api | Import Export Data Source — Official Developer Client for Global Customs Records",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     author="Trade Data Pte. Ltd.",
@@ -12,7 +12,7 @@ setup(
     project_urls={
         "Homepage": "https://tradedata.io",
         "Singapore HQ": "https://tradedata.sg",
-        "Documentation": "https://tradedata.io/docs",
+        "Documentation": "https://top-search.github.io/tradedata-client/",
         "Source": "https://github.com/top-search/tradedata-client",
     },
     packages=find_packages(),
@@ -21,6 +21,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Topic :: Office/Business :: Financial :: Investment",
+        "Topic :: Database :: Front-Ends",
     ],
     python_requires=">=3.8",
 )

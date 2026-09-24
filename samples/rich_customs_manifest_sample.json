@@ -1,0 +1,90 @@
+[
+  {
+    "declaration_number": "US-CBP-2026-98124018",
+    "bill_of_lading_number": "MSCU129381920",
+    "house_bill_of_lading": "HBL-SGP-99214",
+    "shipment_date": "2026-02-18",
+    "arrival_date": "2026-03-05",
+    "customs_clearance_date": "2026-03-06",
+    "transport_mode": "Maritime (Container)",
+    "shipper": {
+      "company_name": "Shenzhen Apex Microelectronics Co., Ltd.",
+      "tax_id": "91440300MA5XXXXXXX",
+      "address": "High-Tech Industrial Park, Nanshan, Shenzhen, Guangdong, China",
+      "country": "CN",
+      "verified_status": true
+    },
+    "consignee": {
+      "company_name": "Silicon Valley Components Inc.",
+      "duns_number": "08-123-4567",
+      "ein": "EIN-94-1234567",
+      "address": "1250 Technology Dr, San Jose, CA 95110, United States",
+      "country": "US",
+      "verified_status": true
+    },
+    "notify_party": {
+      "company_name": "Trans-Pacific Global Logistics LLC",
+      "address": "World Way, Los Angeles, CA 90045, United States"
+    },
+    "commodity": {
+      "hs_code": "8542.31.0000",
+      "hs_chapter": "85",
+      "hs_heading": "8542",
+      "hs_subheading": "8542.31",
+      "hs_description": "Electronic integrated circuits: Processors and controllers",
+      "commercial_description": "Automotive Grade Microcontroller ICs for ADAS Systems (Model: APX-904)",
+      "country_of_origin": "CN"
+    },
+    "valuation_financials": {
+      "customs_declared_value_usd": 245800.00,
+      "cif_value_usd": 251200.00,
+      "fob_value_usd": 245800.00,
+      "freight_charges_usd": 4200.00,
+      "insurance_usd": 1200.00,
+      "incoterms": "FOB Shenzhen",
+      "currency": "USD"
+    },
+    "cargo_metrics": {
+      "quantity": 50000,
+      "quantity_unit": "PCE",
+      "gross_weight_kg": 1850.50,
+      "net_weight_kg": 1620.00,
+      "volume_cbm": 14.50,
+      "container_count_teu": 1
+    },
+    "containers": [
+      {
+        "container_number": "MSKU9012831",
+        "seal_number": "SL-991204",
+        "size_type": "20GP",
+        "tare_weight_kg": 2200
+      }
+    ],
+    "logistics_routing": {
+      "port_of_loading": {
+        "un_locode": "CNSZX",
+        "port_name": "Shenzhen Yantian",
+        "country": "China"
+      },
+      "port_of_discharge": {
+        "un_locode": "USLAX",
+        "port_name": "Port of Los Angeles",
+        "country": "United States"
+      },
+      "carrier": {
+        "scac": "MSCU",
+        "carrier_name": "Mediterranean Shipping Company"
+      },
+      "vessel": {
+        "vessel_name": "MSC OSCAR",
+        "imo_number": "9703291",
+        "voyage_number": "2608W"
+      }
+    },
+    "metadata": {
+      "data_source": "TradeData.io Global Customs Intelligence API",
+      "provider_legal_entity": "TRADE DATA PTE. LTD. (Singapore)",
+      "api_version": "2026-v1"
+    }
+  }
+]

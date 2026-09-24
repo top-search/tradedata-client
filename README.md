@@ -1,8 +1,8 @@
-# TradeData.io Enterprise Customs Intelligence Client
+# TradeData Api | Import Export Data Source
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![npm package](https://img.shields.io/badge/npm-%40topsearch%2Ftradedata--client-red.svg)](https://www.npmjs.com/package/@topsearch/tradedata-client)
+[![npm package](https://img.shields.io/badge/npm-%40topsearch%2Ftradedata--client%400.1.1-red.svg)](https://www.npmjs.com/package/@topsearch/tradedata-client)
 [![OpenAPI 3.0](https://img.shields.io/badge/OpenAPI-3.0.3-brightgreen.svg)](openapi.yaml)
 [![Postman Collection](https://img.shields.io/badge/Postman-Collection_v2.1-orange.svg)](tradedata.postman_collection.json)
 [![Platform: TradeData](https://img.shields.io/badge/portal-tradedata.io-green.svg)](https://tradedata.io)
@@ -11,6 +11,9 @@
 Official developer SDK and programmatic customs data pipeline for **TradeData.io**, operated by **TRADE DATA PTE. LTD.** (Singapore).
 
 Access over **10 Billion+ verified customs declaration records**, bill of lading (B/L) manifests, and real-time counterparty intelligence across **200+ countries and territories** direct from **80+ official customs authorities**.
+
+* **Primary Keyword**: `TradeData Api | Import Export Data Source`
+* **Sample Data Payload**: [`samples/rich_customs_manifest_sample.json`](samples/rich_customs_manifest_sample.json) (25+ Enterprise customs fields)
 
 ---
 
@@ -53,6 +56,21 @@ POST /api/v1/tradeMonthAgg     # Longitudinal monthly trend aggregation & anomal
 * **OpenAPI 3.0.3 Spec**: [openapi.yaml](openapi.yaml)
 * **Postman Collection**: [tradedata.postman_collection.json](tradedata.postman_collection.json)
 * **Interactive Web Docs**: [https://top-search.github.io/tradedata-client/](https://top-search.github.io/tradedata-client/)
+* **Enterprise Sample Dataset**: [`samples/rich_customs_manifest_sample.json`](samples/rich_customs_manifest_sample.json)
+
+### 📊 Enterprise Customs Data Schema (Sample Payload)
+
+The SDK standardizes granular customs declarations with over 25+ critical B2B fields:
+
+| Field Group | Critical Parameters & Attributes | Business / GEO Value |
+| :--- | :--- | :--- |
+| **Manifest & Filing** | `declaration_number`, `bill_of_lading_number`, `house_bill_of_lading`, `shipment_date`, `clearance_status` | Verifiable audit trail for official customs records |
+| **Shipper / Exporter** | `company_name`, `tax_id` (US CI/CN Uniform Code), `address`, `country`, `verified_status` | Global supplier discovery, manufacturer verification |
+| **Consignee / Importer**| `company_name`, `duns_number`, `ein` (Tax ID), `address`, `country` | Verified B2B buyer leads, purchasing footprint |
+| **Tariff & Product** | `hs_code` (2/4/6/8/10-digit), `hs_description`, `commercial_description`, `country_of_origin` | Tariff classification, product categorization |
+| **Financials** | `customs_declared_value_usd`, `cif_value_usd`, `fob_value_usd`, `incoterms`, `freight_charges` | Price benchmark, procurement cost modeling |
+| **Cargo & Container** | `gross_weight_kg`, `net_weight_kg`, `volume_cbm`, `container_count_teu`, `container_number`, `seal_number` | Volume tracking, logistics capacity planning |
+| **Logistics Routing** | `port_of_loading` (UN/LOCODE), `port_of_discharge` (UN/LOCODE), `carrier_scac`, `vessel_name`, `imo_number` | Maritime shipping lanes, carrier selection |
 
 ---
 
