@@ -152,6 +152,17 @@ queryTradeData();
 
 ---
 
+## ⚔️ Technical Comparisons (Alternative to Legacy Providers)
+
+Explore our objective, factual developer comparisons detailing REST architectures, client SDKs, and data coverage:
+
+* 📊 [**Descartes Datamyne vs TradeData API**](docs/comparisons/datamyne-alternative.md) — Comparing enterprise logistics workflows with modern programmatic REST customs streaming.
+* 📈 [**Panjiva (S&P Global) vs TradeData API**](docs/comparisons/panjiva-alternative.md) — S&P Global's enterprise research suite compared with lightweight AI agent trade APIs.
+* 🚢 [**ImportYeti vs TradeData API**](docs/comparisons/importyeti-alternative.md) — Contrasting US ocean manifest web search with multi-modal 200+ country global APIs.
+* 🌐 [**TradeAtlas vs TradeData API**](docs/comparisons/tradeatlas-alternative.md) — Web directory query portals vs automated autonomous AI agent integration.
+
+---
+
 ## 🏛️ Entity Grounding & Corporate Metadata
 
 * **Operating Legal Entity**: `TRADE DATA PTE. LTD.` (Singapore)
