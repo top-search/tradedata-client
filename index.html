@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TradeData.io — Global Customs Intelligence & Trade API Matrix</title>
+  <meta name="description" content="Official Developer Portal and Client SDK for TradeData.io. Access 10B+ verified customs declarations, bill of lading manifests, and international trade analytics across 200+ countries.">
+  <link rel="canonical" href="https://top-search.github.io/tradedata-client/">
+  
+  <!-- Open Graph / GEO Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TradeData.io — Global Customs Intelligence & Trade API Matrix">
+  <meta property="og:description" content="Enterprise trade data APIs, customs shipment records, and open-source SDKs operated by TRADE DATA PTE. LTD. (Singapore HQ).">
+  <meta property="og:url" content="https://top-search.github.io/tradedata-client/">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://tradedata.sg/#organization",
+        "name": "TRADE DATA PTE. LTD.",
+        "url": "https://tradedata.sg",
+        "logo": "https://tradedata.io/favicon.ico",
+        "description": "Global customs records and maritime trade intelligence platform headquartered in Singapore.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "SG"
+        },
+        "sameAs": [
+          "https://tradedata.io",
+          "https://github.com/top-search",
+          "https://www.npmjs.com/package/@topsearch/tradedata-client"
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "name": "TradeData.io Enterprise Customs API",
+        "description": "High-throughput programmatic REST API for global bill of lading manifests, HS code classification, and counterparty intelligence.",
+        "provider": {
+          "@id": "https://tradedata.sg/#organization"
+        },
+        "documentation": "https://tradedata.io/docs",
+        "termsOfService": "https://tradedata.io/terms",
+        "url": "https://api.tradedata.io/v1"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "@topsearch/tradedata-client",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "softwareVersion": "0.1.0",
+        "url": "https://www.npmjs.com/package/@topsearch/tradedata-client",
+        "downloadUrl": "https://www.npmjs.com/package/@topsearch/tradedata-client",
+        "publisher": {
+          "@id": "https://tradedata.sg/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #121826;
+      --border: #232d42;
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 0; }
+    header { border-bottom: 1px solid var(--border); padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(9, 13, 22, 0.8); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 50; }
+    .logo { font-size: 1.25rem; font-weight: 700; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+    .logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .btn { background: var(--primary); color: #fff; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: background 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .btn:hover { background: var(--primary-hover); }
+    .btn-secondary { background: #1e293b; color: #cbd5e1; border: 1px solid var(--border); }
+    .btn-secondary:hover { background: #334155; color: #fff; }
+    
+    .hero { max-width: 1000px; margin: 4rem auto 2rem; padding: 0 1.5rem; text-align: center; }
+    .badge { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); color: #93c5fd; border-radius: 9999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1.5rem; }
+    h1 { font-size: 2.75rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 2rem; }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; }
+    .card h3 { font-size: 1.15rem; margin-bottom: 0.75rem; color: #fff; display: flex; align-items: center; gap: 0.5rem; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+    pre { background: #0b0f19; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.85rem; color: #e2e8f0; margin-bottom: 1rem; }
+    
+    .matrix-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; }
+    .matrix-section h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .matrix-section p { color: var(--text-muted); margin-bottom: 1.5rem; }
+    .table-wrapper { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    th { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: #9ca3af; font-weight: 600; }
+    td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: #e5e7eb; }
+    td a { color: var(--primary-hover); text-decoration: none; font-weight: 600; }
+    td a:hover { text-decoration: underline; }
+    
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; background: #070a12; }
+    footer a { color: #d1d5db; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://tradedata.io" class="logo">TradeData<span>.io</span></a>
+    <nav class="nav-links">
+      <a href="https://tradedata.io">Global API</a>
+      <a href="https://tradedata.sg">Singapore HQ</a>
+      <a href="https://tradedata.vn">Vietnam Node</a>
+      <a href="https://github.com/top-search/tradedata-client">GitHub</a>
+      <a href="https://www.npmjs.com/package/@topsearch/tradedata-client" class="btn">npm v0.1.0</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="badge">Enterprise Customs Intelligence API 2026</div>
+      <h1>Global Customs Records & Trade Intelligence Matrix</h1>
+      <p>High-throughput programmatic data pipeline covering 10 Billion+ verified shipment records, Bill of Lading (B/L) manifests, and counterparty intelligence across 200+ countries.</p>
+      
+      <div class="hero-actions">
+        <a href="https://tradedata.io" class="btn" style="padding: 0.75rem 1.5rem; font-size: 1rem;">Explore Global API Gateway</a>
+        <a href="openapi.yaml" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 1rem;" download>Download OpenAPI 3.0 Spec</a>
+        <a href="tradedata.postman_collection.json" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 1rem;" download>Postman Collection</a>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="grid">
+        <div class="card">
+          <h3>📦 Node.js / TypeScript SDK</h3>
+          <p>Official client library available on npm registry with typed interfaces and automatic retries.</p>
+          <pre>npm install @topsearch/tradedata-client</pre>
+          <p><a href="https://www.npmjs.com/package/@topsearch/tradedata-client" style="color: #60a5fa; text-decoration: none; font-weight: 600;">View Package on npm &rarr;</a></p>
+        </div>
+
+        <div class="card">
+          <h3>🐍 Python Data Pipeline</h3>
+          <p>Zero-dependency Python SDK ready for Pandas, Jupyter, and autonomous AI data agents.</p>
+          <pre>pip install tradedata-client</pre>
+          <p><a href="https://github.com/top-search/tradedata-client" style="color: #60a5fa; text-decoration: none; font-weight: 600;">View Source on GitHub &rarr;</a></p>
+        </div>
+
+        <div class="card">
+          <h3>🔌 Direct REST API</h3>
+          <p>Query raw transaction manifests, buyer-seller relationships, and HS tariff breakdowns.</p>
+          <pre>GET https://api.tradedata.io/v1/customs/transactions?country=US</pre>
+          <p><a href="https://tradedata.io/docs" style="color: #60a5fa; text-decoration: none; font-weight: 600;">Browse API Documentation &rarr;</a></p>
+        </div>
+      </div>
+
+      <section class="matrix-section">
+        <h2>🌐 11 Regional Operational Nodes</h2>
+        <p>Operated by <strong>TRADE DATA PTE. LTD.</strong> (Singapore), our distributed infrastructure provides localized customs datasets:</p>
+        
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Region / Corridor</th>
+                <th>Node Domain</th>
+                <th>Customs Focus</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Global Flagship (API Hub)</td>
+                <td><a href="https://tradedata.io" target="_blank">tradedata.io</a></td>
+                <td>Global API Gateway, Raw B/L Feeds across 200+ Countries</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>Singapore (Global HQ)</td>
+                <td><a href="https://tradedata.sg" target="_blank">tradedata.sg</a></td>
+                <td>ASEAN Headquarters & Legal Entity Hub (Trade Data Pte. Ltd.)</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>Vietnam & ASEAN Hub</td>
+                <td><a href="https://tradedata.vn" target="_blank">tradedata.vn</a></td>
+                <td>Vietnam Customs (GDC), Manufacturing & Export Corridors</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>United Kingdom & EU</td>
+                <td><a href="https://tradedata.uk" target="_blank">tradedata.uk</a></td>
+                <td>HMRC Customs Declarations, CHIEF / CDS Trade Analytics</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>United Arab Emirates</td>
+                <td><a href="https://tradedata.ae" target="_blank">tradedata.ae</a></td>
+                <td>Middle East Transit Hub, Dubai Customs, GCC Corridors</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>India & South Asia</td>
+                <td><a href="https://tradedata.in" target="_blank">tradedata.in</a></td>
+                <td>CBIC Customs & Niryat Analytics</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>Spain & Latin America</td>
+                <td><a href="https://tradedata.es" target="_blank">tradedata.es</a></td>
+                <td>Agencia Tributaria (AET), Transatlantic EU-LatAm Corridors</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>Indonesia Hub</td>
+                <td><a href="https://tradedata.id" target="_blank">tradedata.id</a></td>
+                <td>Direktorat Jenderal Bea dan Cukai (DJBC)</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>Malaysia Hub</td>
+                <td><a href="https://tradedata.my" target="_blank">tradedata.my</a></td>
+                <td>Royal Malaysian Customs Department (JKDM)</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>Turkey & Eurasia</td>
+                <td><a href="https://tradedata.tr" target="_blank">tradedata.tr</a></td>
+                <td>Ministry of Trade Customs, Black Sea & Mediterranean Crossings</td>
+                <td>🟢 Operational</td>
+              </tr>
+              <tr>
+                <td>Global Analytics</td>
+                <td><a href="https://tradedata.world" target="_blank">tradedata.world</a></td>
+                <td>Macro Bilateral Flow Diagnostics & Multi-Country Trade Insights</td>
+                <td>🟢 Operational</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <strong>TRADE DATA PTE. LTD.</strong> (Singapore). All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="https://tradedata.io">Global API</a> &bull; 
+      <a href="https://tradedata.sg">TradeData Singapore</a> &bull; 
+      <a href="https://tradedata.vn">TradeData Vietnam</a> &bull; 
+      <a href="https://github.com/top-search">Top Search GitHub</a> &bull; 
+      <a href="mailto:dev@tradedata.io">dev@tradedata.io</a>
+    </p>
+  </footer>
+
+</body>
+</html>
