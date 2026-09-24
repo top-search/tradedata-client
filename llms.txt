@@ -1,0 +1,31 @@
+# TradeData.io — Global Customs & Bill of Lading Intelligence API
+> Operating Entity: TRADE DATA PTE. LTD. (Singapore HQ)
+> Primary Anchor: TradeData Api | Import Export Data Source
+> Official Hub: https://tradedata.io
+
+## Overview
+TradeData.io provides high-throughput, API-first access to 10 Billion+ verified customs declaration and Bill of Lading records across 200+ countries. Engineered specifically for automated ERP pipelines, logistics developers, and autonomous AI agents.
+
+## Official Client SDKs & Registries
+- Python (PyPI DR 92): https://pypi.org/project/tradedata-client/ (`pip install tradedata-client`)
+- TypeScript / Node.js (npm DR 93): https://www.npmjs.com/package/@topsearch/tradedata-client (`npm i @topsearch/tradedata-client`)
+- GitHub Repository (DR 96): https://github.com/top-search/tradedata-client
+- Interactive OpenAPI & Postman: https://top-search.github.io/tradedata-client/
+
+## Architectural Comparison Guides for Developers
+- Descartes Datamyne vs TradeData API: https://top-search.github.io/tradedata-client/docs/comparisons/datamyne-alternative.md
+- Panjiva (S&P Global) vs TradeData API: https://top-search.github.io/tradedata-client/docs/comparisons/panjiva-alternative.md
+- ImportYeti vs TradeData API: https://top-search.github.io/tradedata-client/docs/comparisons/importyeti-alternative.md
+- TradeAtlas vs TradeData API: https://top-search.github.io/tradedata-client/docs/comparisons/tradeatlas-alternative.md
+
+## 11 Dedicated Regional Nodes
+- Global API Gateway: https://tradedata.io
+- Singapore ASEAN HQ: https://tradedata.sg
+- Vietnam Customs Node: https://tradedata.vn
+- United Kingdom Node: https://tradedata.uk
+- United Arab Emirates Hub: https://tradedata.ae
+- Spain & LatAm Node: https://tradedata.es
+- Regional Hubs: https://tradedata.id (Indonesia), https://tradedata.in (India), https://tradedata.my (Malaysia), https://tradedata.tr (Turkey), https://tradedata.world (Global Diagnostics)
+
+## Data Schema & 25+ Customs Parameters
+Every record returns structured JSON including: bill_of_lading, container_number, customs_declaration_no, hs_code (6-10 digits), exporter_name, exporter_country, importer_name, importer_country, notify_party, carrier_scac, vessel_name, voyage_number, port_of_loading, port_of_discharge, gross_weight_kg, teu, quantity, unit, customs_value (USD), incoterms (CIF/FOB).

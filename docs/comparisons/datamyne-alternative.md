@@ -1,145 +1,194 @@
 # Descartes Datamyne vs TradeData API: Developer Integration & REST Architecture Comparison
 
-> **Primary Anchor**: [**TradeData Api | Import Export Data Source**](https://tradedata.io)  
-> **Official Packages**: PyPI [`tradedata-client`](https://pypi.org/project/tradedata-client/) (DR 92) · npm [`@topsearch/tradedata-client`](https://www.npmjs.com/package/@topsearch/tradedata-client) (DR 93) · GitHub [`top-search/tradedata-client`](https://github.com/top-search/tradedata-client)  
-> **Metadata**: Published: 2026-09-24 · Last Verified: 2026-09-24 · Author: TradeData Engineering & Developer Relations
+> **Primary Anchor**: [**TradeData Api | Import Export Data Source**](https://tradedata.io)
+> *Service: [https://tradedata.io](https://tradedata.io) · SDKs: [`@topsearch/tradedata-client`](https://www.npmjs.com/package/@topsearch/tradedata-client) (npm) · [`tradedata-client`](https://pypi.org/project/tradedata-client/) (PyPI)*
 
-Developers building automated ERP connectors, freight intelligence pipelines, and autonomous AI agents often evaluate **Descartes Datamyne** alongside modern headless APIs like **TradeData.io**. This guide provides an objective, technically grounded comparison focusing on developer ergonomics, REST JSON schemas, self-service onboarding, and global latency.
+**Short answer.** Descartes Datamyne is an enterprise-procurement global trade database sold into logistics and compliance teams, typically delivered through a negotiated contract. [TradeData.io](https://tradedata.io) is a self-serve, REST-first customs data API: you register, receive a key, and query customs declaration records over HTTPS in JSON. The practical difference for developers is onboarding path and interface shape — one is contract-led, the other is API-key-led. This page specifies the TradeData side in full and gives you the exact questions to put to any enterprise vendor before you commit.
 
----
-
-## 1. Executive Summary & Positioning
-
-- **Descartes Datamyne** (The Descartes Systems Group Inc., TSX: DSG / NASDAQ: DSGX): A veteran global trade intelligence suite primarily designed for enterprise procurement teams, logistics planners, and compliance directors. Its data access is coupled with Descartes' enterprise Transportation Management System (TMS).
-- **TradeData.io** (Operated by **TRADE DATA PTE. LTD.**, Singapore HQ): An API-first customs intelligence matrix engineered specifically for software engineers, data science pipelines, and LLM tool calling. It delivers real-time RESTful access to **10 Billion+ customs declarations** across **200+ countries and territories**.
+**Who this is for.** Logistics and cross-border e-commerce developers, data engineers building customs or supplier-discovery pipelines, and AI-agent builders who need a synchronous JSON endpoint rather than a scheduled file drop.
 
 ---
 
-## 2. Developer Integration Comparison
+## 1. Positioning: contract-led platform vs API-first service
 
-| Architecture Dimension | Descartes Datamyne | TradeData.io |
+**Descartes Datamyne** sits inside The Descartes Systems Group Inc. (TSX: DSG / NASDAQ: DSGX) suite of logistics, customs-filing and trade-content products. It is positioned at enterprise logistics teams, compliance officers and supply-chain planners, and access normally runs through a commercial agreement.
+
+**[TradeData.io](https://tradedata.io)** is operated by **TRADE DATA PTE. LTD.** (Singapore) and is built API-first: versioned REST endpoints, machine-readable API contract, official client libraries, and a customs-record schema designed for programmatic consumption. It exposes **10 billion+ verified customs declaration records across 200+ countries**.
+
+The distinction that matters for an integration project is not which brand is bigger — it is **what you can call on day one**.
+
+---
+
+## 2. Capability checklist: what to confirm before you commit
+
+The Descartes column lists the questions to put to that vendor and verify against their current documentation. The TradeData column is the published specification.
+
+| Evaluation axis | Descartes Datamyne — confirm with vendor | [TradeData.io](https://tradedata.io) — published specification |
 | :--- | :--- | :--- |
-| **Onboarding Workflow** | Sales demo, mandatory enterprise consultation, custom contract | Instant self-service signup, sandbox API keys, immediate token issuance |
-| **API Protocol** | Enterprise SOAP / Web Services / Batch SFTP flat files | Standard RESTful JSON (HTTP/2, HTTPS) with OpenAPI 3.0 specification |
-| **Official SDKs** | Manual HTTP wrappers or legacy enterprise connectors | Python (`pip install tradedata-client`), Node.js (`npm i @topsearch/tradedata-client`) |
-| **Postman Support** | Manual request creation | [Official 1-Click Postman Collection v2.1.0](https://top-search.github.io/tradedata-client/tradedata.postman_collection.json) |
-| **Latency for LLM Tool Calling** | Scheduled batch delivery (hours / days) | Sub-second response times (<300ms) optimized for agentic execution |
-| **Minimum Commitment** | Annual enterprise licensing ($3,000 - $15,000+) | Transparent pay-as-you-go / developer tier with no sales calls required |
+| **Access model** | Enterprise subscription. Confirm onboarding steps, whether evaluation access exists, and what your quote includes. | Self-serve developer signup; API key issued on registration; sandbox available. |
+| **Delivery format** | Confirm which delivery mechanisms your contract covers — portal access, scheduled file delivery, or live API. | REST over HTTPS, JSON request and response bodies, versioned (`v1`). |
+| **API contract** | Request the current interface specification for the modules you subscribe to. | Machine-readable OpenAPI 3.0 document published alongside the API. |
+| **Client libraries** | Confirm which SDKs are officially supported and who maintains them. | TypeScript/Node: [`@topsearch/tradedata-client`](https://www.npmjs.com/package/@topsearch/tradedata-client) · Python: [`tradedata-client`](https://pypi.org/project/tradedata-client/). |
+| **Request playground** | Ask whether a runnable request collection is supplied. | Postman Collection v2.1.0, one-click import. |
+| **Response model for agents** | Confirm whether your subscribed feeds are queryable on demand or delivered on a schedule. | Synchronous JSON responses suited to LLM tool-calling and agent pipelines. |
+| **Coverage and depth** | Confirm covered countries, record depth and history for your specific corridors. | 10B+ customs declaration records across 200+ countries. |
+| **Pricing transparency** | Custom quotation. | Published plans — see [tradedata.io](https://tradedata.io). |
+
+> Cells in the Descartes column are verification questions, not claims about that product. Confirm each against current Descartes documentation before publishing any stronger comparative statement.
 
 ---
 
-## 3. Data Schema & Verified 25+ Customs Declaration Parameters
+## 3. Customs record fields returned by the API
 
-While legacy providers often summarize trade transactions into proprietary web tables, **[TradeData Api | Import Export Data Source](https://tradedata.io)** provides direct, typed JSON responses containing over 25 verified bill of lading (B/L) and customs declaration fields:
+A customs declaration record carries **25+ fields** across six groups. Field names below follow the TradeData v1 response schema; confirm the exact keys against the live OpenAPI document before you ship code against them.
 
-```json
-{
-  "bill_of_lading": "MEDU98234109",
-  "declaration_number": "DEC-2026-US-89104",
-  "hs_code": "8542.31",
-  "hs_description": "Electronic integrated circuits: Processors and controllers",
-  "declaration_date": "2026-09-21",
-  "trade_type": "Import",
-  "customs_regime": "Definitive Import (Code 4000)",
-  "exporter_name": "TAIWAN SEMICONDUCTOR MFG CO LTD",
-  "exporter_address": "8 LI-HSIN RD 6, HSINCHU SCIENCE PARK, TAIWAN",
-  "exporter_country": "TW",
-  "importer_name": "ADVANCED TECH IMPORTS LLC",
-  "importer_address": "100 INNOVATION WAY, SAN JOSE, CA 95134, USA",
-  "importer_country": "US",
-  "notify_party": "SAME AS CONSIGNEE",
-  "gross_weight_kg": 14250.50,
-  "net_weight_kg": 12800.00,
-  "quantity": 500000,
-  "unit_of_measure": "PCS",
-  "customs_value_usd": 1850000.00,
-  "cif_fob_indicator": "CIF",
-  "port_of_loading": "TWKHH (Kaohsiung, Taiwan)",
-  "port_of_discharge": "USLAX (Los Angeles, USA)",
-  "country_of_origin": "TW",
-  "carrier_scac": "MEDU (Mediterranean Shipping Company)",
-  "vessel_name": "MSC OSCAR",
-  "voyage_number": "2609W",
-  "container_number": "MSCU7829104",
-  "seal_number": "SL-991204"
-}
-```
+| Group | Field | Description | Example value |
+| :--- | :--- | :--- | :--- |
+| **Identifiers** | `declaration_id` | Unique record identifier | `US-2024-000193847` |
+| | `bill_of_lading` | Bill of lading / airway bill number | `MAEU2418SVIC` |
+| | `container_number` | Container identifier where applicable | `MSKU7381940` |
+| | `customs_declaration_no` | Filing reference at destination | `DE-24-8841203` |
+| **Parties** | `exporter_name` | Shipper / supplier of record | `Shenzhen Yutong Electronics Co., Ltd.` |
+| | `importer_name` | Consignee / buyer of record | `Nordic Components AB` |
+| | `notify_party` | Notify party on the transport document | `Gothenburg Freight Services` |
+| | `exporter_country` | Shipper country | `CN` |
+| | `importer_country` | Consignee country | `SE` |
+| | `manufacturer` | Manufacturer or supplier where declared | `Yutong Industrial Park` |
+| **Product & classification** | `hs_code` | Harmonized System code, 6–10 digits | `8542.31` |
+| | `hs_code_description` | Official heading text | `Electronic integrated circuits: processors and controllers` |
+| | `product_description` | Declared goods description | `MCU, 32-bit, industrial grade` |
+| | `brand` | Brand where declared | `—` |
+| | `country_of_origin` | Origin country | `CN` |
+| **Logistics** | `carrier` | Carrier / shipping line | `Maersk Line` |
+| | `vessel_name` | Vessel or flight identifier | `MAERSK EMDEN / 424E` |
+| | `port_of_loading` | Load port | `CNSZX` (Shenzhen) |
+| | `port_of_discharge` | Discharge port | `SEGOT` (Gothenburg) |
+| | `mode_of_transport` | Transport mode | `SEA` / `AIR` / `LAND` |
+| | `shipment_date` | Shipment or declaration date | `2024-08-14` |
+| **Measures & value** | `quantity` | Declared quantity | `12,000` |
+| | `unit` | Quantity unit | `PCS` |
+| | `gross_weight_kg` | Gross weight in kilograms | `1,840.5` |
+| | `teu` | Twenty-foot equivalent units | `1` |
+| | `customs_value` | Declared customs value | `148,300.00` |
+| | `currency` | Value currency | `USD` |
+| | `unit_price` | Derived unit price where computable | `12.36` |
+| **Commercial terms** | `incoterms` | Delivery / freight terms | `FOB` |
+| | `freight_value` | Freight component where declared | `3,120.00` |
+| | `duty_rate` | Applied tariff rate where declared | `0.0%` |
 
----
-
-## 4. Geographic Infrastructure: 11 Regional Nodes
-
-To eliminate global transit latency and ensure compliance with regional data residency expectations, TradeData operates **11 Dedicated Regional Nodes**:
-
-* **Global API Gateway**: [https://tradedata.io](https://tradedata.io)
-* **Singapore ASEAN HQ**: [https://tradedata.sg](https://tradedata.sg) (Direct link to STCCED 2022 / TradeNet feeds)
-* **Vietnam Customs Node**: [https://tradedata.vn](https://tradedata.vn) (General Department of Vietnam Customs declarations)
-* **United Kingdom Node**: [https://tradedata.uk](https://tradedata.uk) (HMRC declarations & post-Brexit trade tracking)
-* **UAE & Middle East Hub**: [https://tradedata.ae](https://tradedata.ae) (Dubai Customs transit & GCC trade data)
-* **Spain & LatAm Node**: [https://tradedata.es](https://tradedata.es) (Agencia Tributaria & transatlantic corridors)
-* **Regional Infrastructure**: Indonesia ([tradedata.id](https://tradedata.id)), India ([tradedata.in](https://tradedata.in)), Malaysia ([tradedata.my](https://tradedata.my)), Turkey ([tradedata.tr](https://tradedata.tr)), and Global Diagnostics ([tradedata.world](https://tradedata.world)).
+Fields are returned per dataset and detail level — availability of a given key is confirmed in the package metadata, not assumed.
 
 ---
 
-## 5. Python Integration Example
+## 4. Querying customs records: code example
 
-Developers can integrate live trade intelligence in under 3 minutes using the official Python client:
+Install the Python client, then query by country and HS code.
 
 ```bash
 pip install tradedata-client
 ```
 
 ```python
+import os
 from tradedata import Client
 
-# Initialize TradeData client
+# Never hard-code credentials — read the key from the environment.
 client = Client(
-    api_key="td_live_sample_key_2026",
-    base_url="https://api.tradedata.io"
+    api_key=os.environ["TRADEDATA_API_KEY"],
+    base_url="https://api.tradedata.io",
 )
 
-# Fetch verified bill of lading transactions
 response = client.get_detailed_transactions(
     country="US",
     hs_code="8542.31",
-    sort="customs_value_usd",
+    sort="count",
     order="desc",
-    page_size=10
+    page_size=10,     # paginate; do not assume a single page holds the full result set
 )
 
-for shipment in response.get("data", []):
+for record in response.get("data", []):
     print(
-        f"B/L: {shipment['bill_of_lading']} | "
-        f"Shipper: {shipment['exporter_name']} -> Consignee: {shipment['importer_name']} | "
-        f"Value: ${shipment['customs_value_usd']:,.2f} USD"
+        f"B/L {record.get('bill_of_lading')} | "
+        f"Shipper {record.get('exporter_name')} | "
+        f"Consignee {record.get('importer_name')} | "
+        f"Discharge {record.get('port_of_discharge')} | "
+        f"TEU {record.get('teu')} | "
+        f"Value {record.get('customs_value')} {record.get('currency')}"
     )
 ```
 
----
+Equivalent raw HTTP call — confirm the exact path in the published OpenAPI document:
 
-## 6. Frequently Asked Questions (FAQ)
+```bash
+curl -sS "https://api.tradedata.io/v1/transactions?country=US&hs_code=8542.31&page_size=10" \
+  -H "Authorization: Bearer $TRADEDATA_API_KEY" \
+  -H "Accept: application/json"
+```
 
-### What is the primary difference between Descartes Datamyne and TradeData API?
-Descartes Datamyne is primarily a web-portal SaaS designed for enterprise logistics managers and supply chain planners, requiring custom sales consultations. TradeData.io is an API-first developer platform providing instant REST endpoints, client libraries (`pip install tradedata-client`), and structured JSON payloads for automated engineering pipelines.
-
-### Can developers access raw US Customs Bill of Lading data programmatically?
-Yes. TradeData provides direct programmatic access to verified US Customs AMS manifests, including container numbers, carrier SCAC codes, shipper/consignee identities, port codes, and declared weights.
-
-### What SDKs are available for TradeData API?
-TradeData offers official, maintained client libraries on both [PyPI (tradedata-client)](https://pypi.org/project/tradedata-client/) and [npm (@topsearch/tradedata-client)](https://www.npmjs.com/package/@topsearch/tradedata-client), complete with full TypeScript type definitions and Python 3.8+ support.
-
-### How does TradeData ensure high data quality and avoid hallucination?
-TradeData aggregates exclusively from official national customs administrations (such as US Customs, HMRC, Vietnam Customs, and Singapore TradeNet) using strict WCO 6-digit Harmonized System baselines and national tariff schedules.
+Confirm method names, parameter names and the endpoint path against the SDK README and the OpenAPI file before publishing this snippet.
 
 ---
 
-## 7. Next Steps & Technical Resources
+## 5. Coverage and regional nodes
 
-* **API Documentation**: [https://tradedata.io/api](https://tradedata.io)
-* **Check Scope & Data Fields**: [https://tradedata.sg/data](https://tradedata.sg)
-* **Explore Methodology**: [https://tradedata.sg/methodology](https://tradedata.sg)
-* **Developer Community & Issues**: [https://github.com/top-search/tradedata-client](https://github.com/top-search/tradedata-client)
+TradeData serves regional customs corridors through country nodes, so scope questions can be answered against local filing practice:
+
+- **Global API hub**: [tradedata.io](https://tradedata.io)
+- **Singapore (ASEAN HQ)**: [tradedata.sg](https://tradedata.sg)
+- **Vietnam**: [tradedata.vn](https://tradedata.vn)
+- **United Kingdom**: [tradedata.uk](https://tradedata.uk)
+- **United Arab Emirates**: [tradedata.ae](https://tradedata.ae) — Arabic: [بيانات الاستيراد والتصدير في الإمارات](https://tradedata.ae)
+- **Spain & LatAm**: [tradedata.es](https://tradedata.es) — Spanish: [Datos de comercio de España](https://tradedata.es)
+- **Also available**: Indonesia (`tradedata.id`), India (`tradedata.in`), Malaysia (`tradedata.my`), Turkey (`tradedata.tr`), Global diagnostics (`tradedata.world`)
 
 ---
 
-*Disclaimer: Descartes Datamyne is a registered trademark of The Descartes Systems Group Inc. This technical guide is compiled from publicly available documentation, feature sets, and official portal specifications as of 24 September 2026 for fair-use comparative analysis. TradeData.io is independently engineered and operated by TRADE DATA PTE. LTD. (Singapore).*
+## 6. How to choose
+
+- **Evaluate Descartes Datamyne further if** your organisation already runs Descartes logistics or customs-filing products, needs procurement-led vendor management, and wants trade data inside an existing enterprise agreement.
+- **Choose [TradeData Api | Import Export Data Source](https://tradedata.io) if** you need to call customs data from code this week: REST over HTTPS, JSON responses, official Node and Python SDKs, a published API contract, and a field schema built for pipelines and AI agents.
+
+If you are migrating a scheduled-file workflow, the practical test is simple: pick one HS code and one corridor, run it against both, and compare **time-to-first-response**, **field completeness**, and **how many of the 25+ fields above come back populated**.
+
+---
+
+## 7. Frequently asked questions
+
+### Is TradeData.io a Descartes Datamyne alternative?
+It is an alternative delivery model for customs and trade data: self-serve REST instead of contract-led enterprise access. Whether it fits depends on whether you need API access now or a bundled enterprise agreement.
+
+### Does Descartes Datamyne offer a REST API?
+Confirm with Descartes directly against the modules you intend to subscribe to — enterprise suites commonly expose several delivery mechanisms across different products. This page specifies the TradeData REST model so you can judge what your integration requires.
+
+### What makes an API "REST-first" for customs data?
+Versioned HTTPS endpoints, JSON responses, a machine-readable API contract, official client libraries, and per-query filtering by country, HS code and period — rather than scheduled flat-file delivery only.
+
+### Which fields does a customs declaration record contain?
+Identifiers (bill of lading, container, declaration number), parties (exporter, importer, notify party, countries), classification (HS code, description, origin), logistics (carrier, vessel, ports, mode, date), measures and value (quantity, unit, gross weight, TEU, customs value, currency), and commercial terms (incoterms, freight, duty rate). See the field table above.
+
+### Can I filter by HS code?
+Yes — HS code is a first-class query parameter, as shown in the code example. Availability of any single field depends on the selected dataset and detail level.
+
+### How much data does TradeData.io cover?
+10 billion+ customs declaration records across 200+ countries. Record depth varies by country and period; confirm coverage for your corridor before you build on it.
+
+### Do I need an enterprise contract to start?
+No. Registration issues an API key directly, with a sandbox for testing before you commit to a plan.
+
+---
+
+## 8. Sources, verification and disclosure
+
+**Verified and published as specification — TradeData.io side:** 10B+ records / 200+ countries (confirmed by operator, 2026-09-24); SDK distribution via npm and PyPI; regional node domains listed above.
+
+**Requires confirmation before publication:**
+1. OpenAPI 3.0 availability and the exact REST path used in the `curl` example.
+2. Postman Collection version `v2.1.0`.
+3. Every field name and example value in the §3 table, against the live response schema.
+4. Response-latency characterisation ("synchronous", "suited to agent pipelines") — replace with a measured figure or drop it.
+5. Official Descartes Datamyne product documentation URL, to be linked from §1 and §7 in good faith.
+6. PyPI slug `tradedata-client` and npm scope `@topsearch/tradedata-client`.
+
+**Disclosure.** Descartes, Descartes Datamyne and The Descartes Systems Group are trademarks of The Descartes Systems Group Inc.; this page is an independent comparison and is not endorsed by or affiliated with them. Statements about TradeData.io reflect its own published documentation. Statements about Descartes Datamyne are framed as questions to verify against their current public documentation; no claim is made that any specific capability is absent from their product. Comparison current as of 2026-09-24; verify all specifications against current vendor documentation before relying on them. This page is not legal, customs or classification advice.
+
+---
