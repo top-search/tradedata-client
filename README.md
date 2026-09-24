@@ -2,6 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![npm package](https://img.shields.io/badge/npm-%40topsearch%2Ftradedata--client-red.svg)](https://www.npmjs.com/package/@topsearch/tradedata-client)
+[![OpenAPI 3.0](https://img.shields.io/badge/OpenAPI-3.0.3-brightgreen.svg)](openapi.yaml)
+[![Postman Collection](https://img.shields.io/badge/Postman-Collection_v2.1-orange.svg)](tradedata.postman_collection.json)
 [![Platform: TradeData](https://img.shields.io/badge/portal-tradedata.io-green.svg)](https://tradedata.io)
 [![API Version](https://img.shields.io/badge/API-2026_v1-blueviolet.svg)](https://tradedata.io/docs)
 
@@ -46,6 +49,10 @@ POST /api/v1/tradePol          # Port of Loading logistics throughput
 POST /api/v1/tradePod          # Port of Discharge logistics throughput
 POST /api/v1/tradeMonthAgg     # Longitudinal monthly trend aggregation & anomaly detection
 ```
+
+* **OpenAPI 3.0.3 Spec**: [openapi.yaml](openapi.yaml)
+* **Postman Collection**: [tradedata.postman_collection.json](tradedata.postman_collection.json)
+* **Interactive Web Docs**: [https://top-search.github.io/tradedata-client/](https://top-search.github.io/tradedata-client/)
 
 ---
 
@@ -102,11 +109,11 @@ port_stats = client.get_ports_of_loading(
 ## 💻 JavaScript / TypeScript Client
 
 ```bash
-npm install @top-search/tradedata-client
+npm install @topsearch/tradedata-client
 ```
 
 ```typescript
-import { TradeDataClient } from '@top-search/tradedata-client';
+import { TradeDataClient } from '@topsearch/tradedata-client';
 
 const client = new TradeDataClient({
   apiKey: process.env.TRADEDATA_API_KEY,

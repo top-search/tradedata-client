@@ -1,0 +1,108 @@
+{
+  "info": {
+    "_postman_id": "7f8c9d2a-e14b-4a5c-9c8d-3b2a1e0f4a8b",
+    "name": "TradeData.io Global Customs Intelligence API",
+    "description": "Official Postman Collection for TradeData.io Enterprise Customs & Trade API v1. Operated by TRADE DATA PTE. LTD.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Customs Transactions (Bill of Lading)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{TRADE_DATA_API_KEY}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.tradedata.io/v1/customs/transactions?country=US&hs_code=851712&limit=20",
+          "protocol": "https",
+          "host": ["api", "tradedata", "io"],
+          "path": ["v1", "customs", "transactions"],
+          "query": [
+            { "key": "country", "value": "US" },
+            { "key": "hs_code", "value": "851712" },
+            { "key": "limit", "value": "20" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Importers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{TRADE_DATA_API_KEY}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.tradedata.io/v1/companies/importers?query=Electronics&country=SG",
+          "protocol": "https",
+          "host": ["api", "tradedata", "io"],
+          "path": ["v1", "companies", "importers"],
+          "query": [
+            { "key": "query", "value": "Electronics" },
+            { "key": "country", "value": "SG" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Exporters",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{TRADE_DATA_API_KEY}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.tradedata.io/v1/companies/exporters?query=Solar&country=VN",
+          "protocol": "https",
+          "host": ["api", "tradedata", "io"],
+          "path": ["v1", "companies", "exporters"],
+          "query": [
+            { "key": "query", "value": "Solar" },
+            { "key": "country", "value": "VN" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "HS Code Intelligence",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{TRADE_DATA_API_KEY}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.tradedata.io/v1/commodities/hscodes?code=851712",
+          "protocol": "https",
+          "host": ["api", "tradedata", "io"],
+          "path": ["v1", "commodities", "hscodes"],
+          "query": [
+            { "key": "code", "value": "851712" }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "TRADE_DATA_API_KEY",
+      "value": "demo_key_sandbox"
+    }
+  ]
+}

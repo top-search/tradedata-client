@@ -1,0 +1,158 @@
+openapi: 3.0.3
+info:
+  title: TradeData.io Enterprise Customs & Trade Intelligence API
+  description: >
+    Official High-Throughput REST API for Global Customs Records, Bill of Lading (B/L)
+    Manifests, HS Code Classifications, and Importer/Exporter Profiles across 200+ Countries.
+    Operated by TRADE DATA PTE. LTD. (Singapore HQ).
+  version: 1.0.0
+  termsOfService: https://tradedata.io/terms
+  contact:
+    name: TradeData Developer Support
+    url: https://tradedata.io
+    email: dev@tradedata.io
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: https://api.tradedata.io/v1
+    description: Global API Gateway Hub
+  - url: https://api.tradedata.sg/v1
+    description: Singapore HQ Regional Gateway
+  - url: https://api.tradedata.vn/v1
+    description: Vietnam Regional Gateway
+  - url: https://api.tradedata.uk/v1
+    description: UK & Europe Regional Gateway
+paths:
+  /customs/transactions:
+    get:
+      summary: Query Detailed Customs Transactions & Bill of Lading Records
+      description: Retrieve granular customs shipment manifests by country, date range, HS code, or company name.
+      parameters:
+        - name: country
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "US"
+        - name: hs_code
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "851712"
+        - name: start_date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+            example: "2026-01-01"
+        - name: end_date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+            example: "2026-03-31"
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Successful query response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        bill_of_lading:
+                          type: string
+                        importer_name:
+                          type: string
+                        exporter_name:
+                          type: string
+                        hs_code:
+                          type: string
+                        product_description:
+                          type: string
+                        weight_kg:
+                          type: number
+                        customs_value_usd:
+                          type: number
+                        port_of_loading:
+                          type: string
+                        port_of_discharge:
+                          type: string
+  /companies/importers:
+    get:
+      summary: Search Verified Global Importers
+      description: Lookup verified buyer profiles, import volumes, and historical trade partners.
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "Electronics"
+        - name: country
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "SG"
+      responses:
+        '200':
+          description: List of matched importers
+  /companies/exporters:
+    get:
+      summary: Search Verified Global Exporters
+      description: Discover verified manufacturers, trading companies, and cross-border suppliers.
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "Solar Panels"
+        - name: country
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "VN"
+      responses:
+        '200':
+          description: List of matched exporters
+  /commodities/hscodes:
+    get:
+      summary: HS Code Intelligence & Classification
+      description: Query 2, 4, 6, 8, and 10-digit Harmonized System tariffs and product descriptions.
+      parameters:
+        - name: code
+          in: query
+          required: true
+          schema:
+            type: string
+            example: "851712"
+      responses:
+        '200':
+          description: HS code classification details
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+security:
+  - ApiKeyAuth: []
