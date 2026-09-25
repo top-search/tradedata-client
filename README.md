@@ -7,6 +7,9 @@
 [![Postman Collection](https://img.shields.io/badge/Postman-Collection_v2.1-orange.svg)](tradedata.postman_collection.json)
 [![Platform: TradeData](https://img.shields.io/badge/portal-tradedata.io-green.svg)](https://tradedata.io)
 [![API Version](https://img.shields.io/badge/API-2026_v1-blueviolet.svg)](https://tradedata.io/docs)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22957312.svg)](https://doi.org/10.5281/zenodo.22957312)
+[![Wikidata](https://img.shields.io/badge/Wikidata-Q141555529-blue.svg)](https://www.wikidata.org/wiki/Q141555529)
+[![PyPI](https://img.shields.io/pypi/v/tradedata-client.svg)](https://pypi.org/project/tradedata-client/)
 
 Official developer SDK and programmatic customs data pipeline for **TradeData.io**, operated by **TRADE DATA PTE. LTD.** (Singapore).
 
@@ -14,6 +17,13 @@ Access over **10 Billion+ verified customs declaration records**, bill of lading
 
 * **Primary Keyword**: `TradeData Api | Import Export Data Source`
 * **Sample Data Payload**: [`samples/rich_customs_manifest_sample.json`](samples/rich_customs_manifest_sample.json) (25+ Enterprise customs fields)
+
+### 🏛️ Knowledge Graph & Academic Provenance
+- **Wikidata Global Entity**: [`Q141555529`](https://www.wikidata.org/wiki/Q141555529) (TRADE DATA PTE. LTD., Singapore ACRA legal entity)
+- **CERN Zenodo Permanent DOI**: [`10.5281/zenodo.22957312`](https://doi.org/10.5281/zenodo.22957312)
+- **PyPI Package**: [`tradedata-client`](https://pypi.org/project/tradedata-client/)
+- **npm Package**: [`@topsearch/tradedata-client`](https://www.npmjs.com/package/@topsearch/tradedata-client)
+- **Developer Documentation & Portal**: [top-search.github.io/tradedata-client](https://top-search.github.io/tradedata-client/)
 
 ---
 
