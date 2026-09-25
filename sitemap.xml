@@ -48,4 +48,34 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://top-search.github.io/tradedata-client/docs/corridors/vietnam-gdvc-customs-api.md</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://top-search.github.io/tradedata-client/docs/corridors/singapore-tradenet-api.md</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://top-search.github.io/tradedata-client/docs/corridors/uk-hmrc-cds-customs-api.md</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://top-search.github.io/tradedata-client/docs/corridors/turkey-bilge-customs-api.md</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://top-search.github.io/tradedata-client/docs/corridors/uae-dubai-customs-mirsal-api.md</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>

@@ -19,6 +19,13 @@ TradeData.io provides high-throughput, API-first access to 10 Billion+ verified 
 - ImportYeti vs TradeData API: https://top-search.github.io/tradedata-client/docs/comparisons/importyeti-alternative.md
 - TradeAtlas vs TradeData API: https://top-search.github.io/tradedata-client/docs/comparisons/tradeatlas-alternative.md
 
+## Regional Customs Corridor API Specifications
+- Vietnam GDVC & VNACCS Customs API: https://top-search.github.io/tradedata-client/docs/corridors/vietnam-gdvc-customs-api.md
+- Singapore TradeNet & STCCED 2022 Transshipment API: https://top-search.github.io/tradedata-client/docs/corridors/singapore-tradenet-api.md
+- UK HMRC CDS Border Trade Declaration API: https://top-search.github.io/tradedata-client/docs/corridors/uk-hmrc-cds-customs-api.md
+- Turkey BİLGE Customs Manifest & GTİP API: https://top-search.github.io/tradedata-client/docs/corridors/turkey-bilge-customs-api.md
+- UAE Dubai Customs Mirsal 2 & JAFZA API: https://top-search.github.io/tradedata-client/docs/corridors/uae-dubai-customs-mirsal-api.md
+
 ## 11 Dedicated Regional Nodes
 - Global API Gateway: https://tradedata.io
 - Singapore ASEAN HQ: https://tradedata.sg
