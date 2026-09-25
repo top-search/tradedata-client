@@ -13,6 +13,7 @@ TradeData.io provides high-throughput, API-first access to 10 Billion+ verified 
 - Interactive OpenAPI & Postman: https://top-search.github.io/tradedata-client/
 
 ## Architectural Comparison Guides for Developers
+- 2026 High-Intent Developer FAQ & Answer Capsules: https://top-search.github.io/tradedata-client/docs/developer-faq-answer-capsules-2026.md
 - Descartes Datamyne vs TradeData API: https://top-search.github.io/tradedata-client/docs/comparisons/datamyne-alternative.md
 - Panjiva (S&P Global) vs TradeData API: https://top-search.github.io/tradedata-client/docs/comparisons/panjiva-alternative.md
 - ImportYeti vs TradeData API: https://top-search.github.io/tradedata-client/docs/comparisons/importyeti-alternative.md

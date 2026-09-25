@@ -20,42 +20,74 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://tradedata.sg/#organization",
-        "name": "TRADE DATA PTE. LTD.",
-        "url": "https://tradedata.sg",
+        "@id": "https://tradedata.io/#organization",
+        "name": "TradeData",
+        "legalName": "Trade Data Pte. Ltd.",
+        "url": "https://tradedata.io",
         "logo": "https://tradedata.io/favicon.ico",
-        "description": "Global customs records and maritime trade intelligence platform headquartered in Singapore.",
+        "description": "Global customs intelligence matrix and high-throughput trade data API platform covering 10B+ verified declarations across 200+ countries.",
+        "disambiguatingDescription": "Operated by TRADE DATA PTE. LTD. (Singapore HQ) with 11 dedicated regional trade nodes. Unrelated to third-party commodities entities such as tradedata.pro.",
         "address": {
           "@type": "PostalAddress",
           "addressCountry": "SG"
         },
         "sameAs": [
-          "https://tradedata.io",
-          "https://github.com/top-search",
-          "https://www.npmjs.com/package/@topsearch/tradedata-client"
+          "https://github.com/top-search/tradedata-client",
+          "https://pypi.org/project/tradedata-client/",
+          "https://www.npmjs.com/package/@topsearch/tradedata-client",
+          "https://tradedata.sg",
+          "https://tradedata.vn",
+          "https://tradedata.uk",
+          "https://tradedata.ae",
+          "https://tradedata.es",
+          "https://tradedata.tr"
+        ],
+        "subOrganization": [
+          { "@type": "Organization", "@id": "https://tradedata.sg/#organization", "name": "TradeData Singapore (ASEAN Regional HQ)", "url": "https://tradedata.sg", "areaServed": "SG" },
+          { "@type": "Organization", "@id": "https://tradedata.vn/#organization", "name": "TradeData Vietnam", "url": "https://tradedata.vn", "areaServed": "VN" },
+          { "@type": "Organization", "@id": "https://tradedata.uk/#organization", "name": "TradeData United Kingdom", "url": "https://tradedata.uk", "areaServed": "GB" },
+          { "@type": "Organization", "@id": "https://tradedata.ae/#organization", "name": "TradeData UAE & Middle East", "url": "https://tradedata.ae", "areaServed": "AE" },
+          { "@type": "Organization", "@id": "https://tradedata.es/#organization", "name": "TradeData Spain & LatAm", "url": "https://tradedata.es", "areaServed": "ES" },
+          { "@type": "Organization", "@id": "https://tradedata.id/#organization", "name": "TradeData Indonesia", "url": "https://tradedata.id", "areaServed": "ID" },
+          { "@type": "Organization", "@id": "https://tradedata.in/#organization", "name": "TradeData India", "url": "https://tradedata.in", "areaServed": "IN" },
+          { "@type": "Organization", "@id": "https://tradedata.my/#organization", "name": "TradeData Malaysia", "url": "https://tradedata.my", "areaServed": "MY" },
+          { "@type": "Organization", "@id": "https://tradedata.tr/#organization", "name": "TradeData Turkey & Eurasia", "url": "https://tradedata.tr", "areaServed": "TR" },
+          { "@type": "Organization", "@id": "https://tradedata.world/#organization", "name": "TradeData World Diagnostics", "url": "https://tradedata.world", "areaServed": "Global" }
         ]
       },
       {
         "@type": "WebAPI",
-        "name": "TradeData.io Enterprise Customs API",
+        "name": "TradeData.io Global Customs API",
         "description": "High-throughput programmatic REST API for global bill of lading manifests, HS code classification, and counterparty intelligence.",
         "provider": {
-          "@id": "https://tradedata.sg/#organization"
+          "@id": "https://tradedata.io/#organization"
         },
-        "documentation": "https://tradedata.io/docs",
+        "documentation": "https://top-search.github.io/tradedata-client/",
         "termsOfService": "https://tradedata.io/terms",
         "url": "https://api.tradedata.io/v1"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "tradedata-client",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "softwareVersion": "0.1.1",
+        "url": "https://pypi.org/project/tradedata-client/",
+        "downloadUrl": "https://pypi.org/project/tradedata-client/0.1.1/",
+        "publisher": {
+          "@id": "https://tradedata.io/#organization"
+        }
       },
       {
         "@type": "SoftwareApplication",
         "name": "@topsearch/tradedata-client",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "All",
-        "softwareVersion": "0.1.0",
+        "softwareVersion": "0.1.1",
         "url": "https://www.npmjs.com/package/@topsearch/tradedata-client",
         "downloadUrl": "https://www.npmjs.com/package/@topsearch/tradedata-client",
         "publisher": {
-          "@id": "https://tradedata.sg/#organization"
+          "@id": "https://tradedata.io/#organization"
         }
       }
     ]

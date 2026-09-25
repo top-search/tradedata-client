@@ -1,1 +1,6 @@
 .npmrc
+
+build/
+dist/
+*.egg-info/
+
